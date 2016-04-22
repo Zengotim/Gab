@@ -2,10 +2,9 @@ package com.tk_squared.gab;
 
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-
 import com.smaato.soma.BannerView;
-import com.smaato.soma.video.VASTAdListener;
-import com.smaato.soma.video.Video;
+import com.smaato.soma.interstitial.Interstitial;
+import com.smaato.soma.interstitial.InterstitialAdListener;
 
 
 /**
@@ -16,9 +15,9 @@ import com.smaato.soma.video.Video;
  * correct version!!
  */
 
-class AdSupport implements VASTAdListener {
+class AdSupport implements InterstitialAdListener {
 
-    private Video smVideo;
+    private Interstitial interstitial;
     private final TkkActivity activity;
 
     public AdSupport(TkkActivity activity){
@@ -26,7 +25,9 @@ class AdSupport implements VASTAdListener {
     }
 
     public void showInterstitial(){
-            smVideo.show();
+        if(interstitial.isInterstitialReady()){
+            interstitial.show();
+        }
     }
 
 
@@ -38,17 +39,17 @@ class AdSupport implements VASTAdListener {
     }
 
     private void setInterstitialAd(){
-        smVideo = new Video(activity);
-        //smVideo.setInterstitialAdListener(this);
-        smVideo.getAdSettings().setPublisherId(activity.getResources().getInteger(R.integer.smaato_pub_id));
-        smVideo.getAdSettings().setAdspaceId(activity.getResources().getInteger(R.integer.smaato_inter_id));
+        interstitial = new Interstitial(activity);
+        interstitial.setInterstitialAdListener(this);
+        interstitial.getAdSettings().setPublisherId(activity.getResources().getInteger(R.integer.smaato_pub_id));
+        interstitial.getAdSettings().setAdspaceId(activity.getResources().getInteger(R.integer.smaato_inter_id));
     }
 
     private void interBannerLoad(){
         Runnable r = new Runnable(){
             @Override
             public void run(){
-                smVideo.asyncLoadNewBanner();
+                interstitial.asyncLoadNewBanner();
             }
         };
         activity.getHandler().postDelayed(r,
@@ -58,7 +59,6 @@ class AdSupport implements VASTAdListener {
     //region Description:Callback methods for InterstitialListener
     @Override
     public void onReadyToShow(){
-        showInterstitial();
         //We'll let ya know
     }
 
@@ -102,11 +102,11 @@ class AdSupport implements VASTAdListener {
     }
 
     public void adCleanup(){
-        //none
+        interstitial.destroy();
     }
 
     public void loadInterstitial(){
-        smVideo.asyncLoadNewBanner();
+        interstitial.asyncLoadNewBanner();
     }
     //endregion
 }

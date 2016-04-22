@@ -51,7 +51,8 @@
                     android:host="Gab" />
             </intent-filter>
         </activity>
-        <activity android:name="com.smaato.soma.video.VASTAdActivity" />
+        <activity android:name="com.smaato.soma.interstitial.InterstitialActivity" />
+        <activity android:name="com.smaato.soma.ExpandedBannerActivity" />
         <service android:name="NotificationKillerService" />
     </application>
 </manifest>
