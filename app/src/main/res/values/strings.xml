@@ -3,6 +3,7 @@
     <string name="app_name">Gab</string>
     <integer name="version_code">1</integer>
     <string name="version_name">Version:  </string>
+    <string name="privacy_policy">Our privacy policy: https://tk-squared.com/Gab/privacy.html</string>
     <string name="compile_date">Compiled on: </string>
     <string name="company">TK-Squared, LLC</string>
     <string name="action_settings">Settings</string>
@@ -17,10 +18,10 @@
     <string name="menu_fetch_title">Check For new List</string>
     <string name="menu_edit_title">Edit List</string>
     <string name="menu_about_title">About Gab</string>
-    <string name="web_page_url">http://www.tk-squared.com/Gab</string>
+    <string name="web_page_url">https://www.tk-squared.com/Gab</string>
     <string name="app_id_string">com.tk_squared.gab</string>
-    <string name="app_icon_url">http://www.tk-squared.com/Gab/gab_icon.png</string>
-    <string name="stations_list_url">http://tk-squared.com/Gab/stations_.json</string>
+    <string name="app_icon_url">https://www.tk-squared.com/Gab/gab_icon.png</string>
+    <string name="stations_list_url">https://tk-squared.com/Gab/stations_.json</string>
     <integer name="smaato_pub_id">1100018452</integer>
     <integer name="smaato_ad_id">130119019</integer>
     <integer name="smaato_inter_id">130119020</integer>

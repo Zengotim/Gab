@@ -78,9 +78,9 @@ public class tkkDataMod {
 
                     InputStream in = con.getInputStream();
                     this.body = streamReader(in);
-
+                    Log.i("ListData", this.body);
                     this.jsons = new JSONArray(this.body);
-
+                    Log.i("ListData", this.jsons.toString());
 
                     if (!vFile.exists()) {
                         if (vFile.createNewFile()) {
